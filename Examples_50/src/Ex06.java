@@ -10,10 +10,26 @@ public class Ex06 {
         int num1 = sc.nextInt();
         System.out.println("Enter 2nd number: ");
         int num2 = sc.nextInt();
-        int maxCommonDivisor = maxCommonDivisor(num1, num2);
+        int maxCommonDivisor = maxCommonDivisor2(num1, num2);
         int minCommonMultiple = minCommonMultiple(num1, num2);
         System.out.println("Max Common Divisor: " + maxCommonDivisor);
         System.out.println("Min Common Multiple: " + minCommonMultiple);
+    }
+
+    //利用辗转相除法
+    private static int maxCommonDivisor2(int num1, int num2) {
+        int temp = 0;
+        if (num2 > num1) {
+            temp = num1;
+            num1 = num2;
+            num2 = temp;
+        }
+        while (temp != 0) {
+            temp = num1 % num2;
+            num1 = num2;
+            num2 = temp;
+        }
+        return num1;
     }
 
     //利用到最大公约数
