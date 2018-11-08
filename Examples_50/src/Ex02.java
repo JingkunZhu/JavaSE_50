@@ -15,7 +15,8 @@ public class Ex02 {
     }
 
     private static boolean isPrime(int i) {
-        for (int j = 2; j <= Math.sqrt(i); j++) {
+        if (i == 1 || i == 2) return true;
+        for (int j = 2; j <= Math.sqrt(i); j++) { // 从2循环到该数平方根下如果没有能除尽的数则表示是素数
             if (i % j == 0) {
                 return false;
             }
