@@ -11,6 +11,29 @@ public class Ex07 {
         sc.close();
         statistics(s);
         count(s);
+        statistics2(s);
+    }
+
+    //利用Character的静态方法判断，结果要比比较大小的形式准确，可以输入zjk101010 12 21 ,./鉴别
+    //statistics中会出现统计错误（原因？？？）
+    private static void statistics2(String s) {
+        char[] chars = s.toCharArray();
+        int letters = 0;
+        int spaces = 0;
+        int nums = 0;
+        int others = 0;
+        for (char c : chars) {
+            if (Character.isLetter(c)) {
+                letters++;
+            } else if (Character.isDigit(c)) {
+                nums++;
+            } else if (Character.isSpaceChar(c)) {
+                spaces++;
+            } else {
+                others++;
+            }
+        }
+        System.out.println("letters: " + letters + ", nums: " + nums + ", spaces: " + spaces + ", others: " + others);
     }
 
     private static void statistics(String s) {
