@@ -8,6 +8,10 @@ public class Ex04 {
         System.out.print("输入要被质因数的正整数：");
         Scanner sc = new Scanner(System.in);
         int num = sc.nextInt();
+        decompose2(num);
+    }
+
+    private static void decompose1(int num) {
         StringBuilder sb = new StringBuilder(num + "=");
         wc:
         while (true) {
@@ -23,4 +27,20 @@ public class Ex04 {
         }
         System.out.println(sb.toString());
     }
+
+    //该方法的区别在于从2开始循环，在for循环下有个while循环会一直将n除以i,以2为例，会除以2到不能整除为止，再除以3
+    private static void decompose2(int n) {
+        System.out.print(n + "=");
+        for (int i = 2; i < n + 1; i++) {
+            while (n % i == 0 && n != i) {
+                n /= i;
+                System.out.print(i + "*");
+            }
+            if (n == i) {
+                System.out.println(i);
+                break;
+            }
+        }
+    }
+
 }
